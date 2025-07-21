@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphical Calculator</title>
+</head>
+
+<body>
+    <script>
+
+        const calculator = document.createElement('div');
+        calculator.style.width = '255px';
+        calculator.style.margin = '100px auto';
+        calculator.style.padding = '20px';
+        calculator.style.border = '2px solid #333';
+        calculator.style.borderRadius = '10px';
+        calculator.style.background = '#f9f4f7ff';
+        calculator.style.textAlign = 'center';
+        calculator.style.fontFamily = 'Arial';
+        document.body.appendChild(calculator);
+
+        // Create display
+        const display = document.createElement('input');
+        display.type = 'text';
+        display.readOnly = true;
+        display.style.width = '100%';
+        display.style.height = '40px';
+        display.style.background = 'grey';
+        display.style.fontSize = '20px';
+        display.style.marginBottom = '10px';
+        display.style.textAlign = 'right';
+        calculator.appendChild(display);
+
+        // Button labels
+        const buttons = [
+            '7', '8', '9', '/',
+            '4', '5', '6', '*',
+            '1', '2', '3', '-',
+            '0', '.', '=', '+',
+            'C',
+        ];
+
+        // Create buttons
+        buttons.forEach(text => {
+            const btn = document.createElement('button');
+            btn.textContent = text;
+            btn.style.width = '50px';
+            btn.style.height = '40px';
+            btn.style.margin = '5px';
+            btn.style.fontSize = '18px';
+            btn.style.cursor = 'pointer';
+
+            // Button action
+            btn.onclick = () => {
+                if (text === '=') {
+                    try {
+                        display.value = eval(display.value);
+                    } catch {
+                        display.value = 'Error';
+                    }
+                } else if (text === 'C') {
+                    display.value = '';
+                } else {
+                    display.value += text;
+                }
+            };
+
+            calculator.appendChild(btn);
+        });
+
+    </script>
+</body>
+
+</html>
