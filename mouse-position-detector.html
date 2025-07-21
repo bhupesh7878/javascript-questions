@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Position Detector</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Create the display element
+        const positionBox = document.createElement('div');
+        positionBox.id = 'mouse-position';
+        positionBox.style.position = 'fixed';
+        positionBox.style.top = '100px';
+        positionBox.style.left = '650px';
+        positionBox.style.padding = '1.3px 15px';
+        positionBox.style.backgroundColor = 'red';
+        positionBox.style.border = '2px solid #999';
+        positionBox.style.borderRadius = '8px';
+        positionBox.style.fontFamily = 'sans-serif';
+        positionBox.style.fontSize = '28px';
+        positionBox.style.boxShadow = '2px 2px 5px rgba(19, 233, 8, 0.2)';
+        positionBox.textContent = 'X: 0, Y: 0';
+
+        document.body.appendChild(positionBox);
+
+        document.addEventListener('mousemove', function (event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            positionBox.textContent = `X: ${x}, Y: ${y}`;
+        });
+
+    </script>
+
+</body>
+
+</html>
