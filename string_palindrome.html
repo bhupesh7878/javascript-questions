@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>string_palindrome</title>
 </head>
+
 <body>
     <script>
         function isPalindrome(str) {
-    // Remove non-alphanumeric characters and convert to lowercase
-    str = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+            // Remove non-alphanumeric characters and convert to lowercase
+            str = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
-    // Compare original with reversed string
-    return str === str.split("").reverse().join("");
-}
+            // Compare original with reversed string
+            return str === str.split("").reverse().join("");
+        }
 
-// Example usage
-console.log(isPalindrome("level"));  
-console.log(isPalindrome("hello"));      
-console.log(isPalindrome("A man, a plan, a canal: Panama")); 
+        // Example usage
+        console.log(isPalindrome("level"));
+        console.log(isPalindrome("hello"));
+        console.log(isPalindrome("A man, a plan, a canal: Panama")); 
     </script>
 </body>
+
 </html>
